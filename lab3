@@ -1,0 +1,262 @@
+#1.	Write a Python program to find those numbers which are divisible by 7 and multiple of 5, between 1500 and 2700 (both included).
+
+# a = 1500
+# b = 2700
+# for i in range(a,b+1):
+#     if i % 5 == 0 and i % 7 == 0:
+#         print(i)
+
+arr = []
+a = 1500
+b = 2700
+for i in range(a,b+1):
+    if i % 5 == 0 and i % 7 == 0:
+        print(i)
+        arr.append(i)
+print("arr: " , arr)
+
+# Write a Python program to convert temperatures to and from Celsius, Fahrenheit. [ Formula: c/5 = f-32/9 [ where c = temperature in Celsius and f = temperature in Fahrenheit] 
+
+# Expected Output: 
+# 60°C is 140 in Fahrenheit 45° F is 7 in Celsius 
+
+celsius_temp = 60
+fahrenheit_temp = 45
+
+def celsius_to_fahrenheit(c):
+    fahrenheit = (c * 9/5) + 32
+    return fahrenheit
+
+def fahrenheit_to_celsius(f):
+    celsius = (f - 32) * 5/9
+    return celsius
+
+print(F"{celsius_temp}°C is {int(celsius_to_fahrenheit(celsius_temp))} in Fahrenheit")
+print(F"{fahrenheit_temp}°F is {int(fahrenheit_to_celsius(fahrenheit_temp))} in Celsius")
+
+# Write a Python program to guess a number between 1 to 9.
+
+import random
+
+def guess_number():
+ number = random.randint(1 , 9)
+ guess = None
+
+ while guess != number:
+   guess = int(input("Guess a number between 1 to 9: "))
+   
+   if(guess != number ):
+    print("Try again.")
+ print("Well Guessed!")
+
+guess_number()# Write a Python program to construct the following pattern, using a nested for loop.
+# *
+# **
+# ***
+# ****
+# *****
+# ****
+# ***
+# **
+# *
+
+for i in range(1 ,5+1):
+    for j in range(i):
+     print("*", end=" ")
+    print()
+for i in range(5-1 ,0,-1):
+    for j in range(i):
+     print("*", end=" ")
+    print()
+
+
+    # Write a Python program that accepts a word from the user and reverse it.
+
+def reverse_word(word):
+    return word[::-1]
+
+# Accept input from the user
+word = input("Enter a word: ")
+
+# Reverse the word
+reversed_word = reverse_word(word)
+# reversed_word = word[::-1]
+
+# Print the reversed word
+print(f"Reversed word: {reversed_word}")# Write a Python program to count the number of even and odd numbers from a series of numbers.
+
+numbers = [1,2,3,4,5,6,7,8,9]
+
+def count_number(numbers):
+    even_count = 0
+    odd_count = 0
+    
+    for number in numbers:
+        if number % 2 == 0:
+            even_count += 1
+        else:
+            odd_count += 1
+    return even_count, odd_count
+
+even_count, odd_count = count_number(numbers)
+
+print(f"Number of even numbers :{even_count}") 
+print(f"Number of odd numbers :{odd_count}") # Write a Python program that prints all the numbers from Oto 6 except 3 and 6.
+# Note : Use 'continue' statement.
+
+# Loop through numbers from 0 to 6
+for number in range(7):
+    # Skip the iteration if the number is 3 or 6
+    if number == 3 or number == 6:
+        continue
+    # Print the number
+    print(number, end=' ')def fibonacci_series(limit):
+    a, b = 0, 1
+    while a <= limit:
+        print(a, end=' ')
+        a, b = b, a + b
+
+# Generate Fibonacci series up to 50
+fibonacci_series(50)
+
+
+
+def fizzbuzz():
+    for num in range(1, 51):
+        if num % 3 == 0 and num % 5 == 0:
+            print("FizzBuzz")
+        elif num % 3 == 0:
+            print("Fizz")
+        elif num % 5 == 0:
+            print("Buzz")
+        else:
+            print(num)
+
+# Print FizzBuzz for numbers from 1 to 50
+fizzbuzz()def generate_2d_array(m, n):
+    # Initialize an empty list to store the 2D array
+    array = []
+    
+    # Loop over each row index from 0 to m-1
+    for i in range(m):
+        # Initialize an empty list for the current row
+        row = []
+        
+        # Loop over each column index from 0 to n-1
+        for j in range(n):
+            # Calculate the element value as i * j and append it to the current row
+            row.append(i * j)
+    
+        # Append the completed row to the array
+        array.append(row)
+    
+    return array
+
+# Input for number of rows and columns
+m = int(input("Enter the number of rows: "))
+n = int(input("Enter the number of columns: "))
+
+# Generate the 2D array
+result = generate_2d_array(m, n)
+
+# Print the generated 2D array
+print("Generated 2D array:")
+for row in result:
+    print(row)def main():
+    lines = []
+    print("Enter lines of text (press Enter on a blank line to terminate):")
+    
+    while True:
+        line = input()
+        if line == "":
+            break
+        lines.append(line.lower())
+    
+    print("\nOutput:")
+    for line in lines:
+        print(line)
+
+# Run the main function
+if __name__ == "__main__":
+    main()def binary_divisible_by_5(binary_numbers):
+    # Split the input string into individual binary numbers
+    binary_list = binary_numbers.split(',')
+    
+    # List to store binary numbers divisible by 5
+    divisible_by_5 = []
+    
+    # Check each binary number
+    for binary in binary_list:
+        # Convert binary number to decimal
+        decimal = int(binary, 2)
+        # Check if divisible by 5
+        if decimal % 5 == 0:
+            divisible_by_5.append(binary)
+    
+    # Join the list into a comma-separated string
+    return ','.join(divisible_by_5)
+
+# Input sequence of comma separated 4 digit binary numbers
+binary_numbers = input("Enter 4-digit binary numbers separated by commas: ")
+
+# Get the binary numbers divisible by 5
+result = binary_divisible_by_5(binary_numbers)
+
+# Print the result
+print("Binary numbers divisible by 5 are:", result)def count_letters_and_digits(input_string):
+    # Initialize counters for letters and digits
+    letters = 0
+    digits = 0
+    
+    # Iterate through each character in the string
+    for char in input_string:
+        # Check if the character is a letter
+        if char.isalpha():
+            letters += 1
+        # Check if the character is a digit
+        elif char.isdigit():
+            digits += 1
+    
+    return letters, digits
+
+# Input string
+input_string = input("Enter a string: ")
+
+# Get the counts of letters and digits
+letters_count, digits_count = count_letters_and_digits(input_string)
+
+# Print the results
+print(f"Letters: {letters_count}")
+print(f"Digits: {digits_count}")import re
+
+def is_valid_password(password):
+    # Check the length of the password
+    if len(password) < 6 or len(password) > 16:
+        return False
+    
+    # Check for at least 1 lowercase letter
+    if not re.search(r'[a-z]', password):
+        return False
+    
+    # Check for at least 1 uppercase letter
+    if not re.search(r'[A-Z]', password):
+        return False
+    
+    # Check for at least 1 digit
+    if not re.search(r'[0-9]', password):
+        return False
+    
+    # Check for at least 1 special character from [$#@]
+    if not re.search(r'[$#@]', password):
+        return False
+    
+    return True
+
+# Input password
+password = input("Enter a password: ")
+
+# Check the validity of the password
+if is_valid_password(password):
+    print("Password is valid")
+else:
+    print("Password is invalid")
